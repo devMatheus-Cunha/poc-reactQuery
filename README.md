@@ -1,6 +1,6 @@
 # Frontend Project
 
-The project was made thinking in perfomace and scability, using React Query seeking an easy management of state, requests, status and cache seeking a great solution in case we have lists with large values and paging. 
+The project was made thinking in performance and scalability, using React Query seeking an easy state management, requests, status and cache seeking a great solution in case we have lists with large values and paging, and also in its code structure.
 
 The site has the following flow:
 
