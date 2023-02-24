@@ -1,0 +1,68 @@
+// Definir variáveis
+$button-padding: 0.5rem 0.3rem;
+$button-radius: 0.25rem;
+
+// Estilo SCSS
+.container {
+ display: flex;
+ justify-content: center;
+ gap: 1rem;
+ margin: 0.2rem 0;
+
+ .buttonGray {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  padding: $button-padding;
+  border-radius: $button-radius;
+  &:focus {
+   outline: none;
+   box-shadow: 0 0 0 2px #ccc;
+  }
+  svg {
+   height: 1.3rem;
+   width: 1.3rem;
+  }
+  &:hover {
+   background-color: #e6e6e6;
+  }
+ }
+
+ .buttonYellow {
+  background-color: #ffc107;
+  color: #fff;
+  font-weight: bold;
+  padding: $button-padding;
+  border-radius: $button-radius;
+  &:focus {
+   outline: none;
+   box-shadow: 0 0 0 2px #ccc;
+  }
+  svg {
+   height: 1.3rem;
+   width: 1.3rem;
+  }
+  &:hover {
+   background-color: #ffa000;
+  }
+ }
+
+ .buttonRed {
+  background-color: #f44336;
+  color: #fff;
+  font-weight: bold;
+  padding: $button-padding;
+  border-radius: $button-radius;
+  &:focus {
+   outline: none;
+   box-shadow: 0 0 0 2px #ccc;
+  }
+  svg {
+   height: 1.3rem;
+   width: 1.3rem;
+  }
+  &:hover {
+   background-color: #e53935;
+  }
+ }
+}

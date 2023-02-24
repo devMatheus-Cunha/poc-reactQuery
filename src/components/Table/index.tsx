@@ -1,11 +1,13 @@
 import React from "react";
 
-import "./styles.css";
+import "././styles.module.scss";
 
 export interface Columns {
   header: string;
   name: string;
-  action?: (id: string | number) => void;
+  action?: (data: Record<string, string | number>) => void
+  modifer?: any
+
 }
 
 interface TableProps<T> {
@@ -14,6 +16,13 @@ interface TableProps<T> {
 }
 
 const Table = <T extends {}>({ columns, data = [] }: TableProps<T>) => {
+
+  const getValueByString = (object: any, path: string) => {
+    const properties = path.split('.');
+    return properties.reduce((prev: any, curr: string) => prev && prev[curr], object);
+  };
+
+
   return (
     <table>
       <thead>
@@ -26,19 +35,26 @@ const Table = <T extends {}>({ columns, data = [] }: TableProps<T>) => {
       <tbody>
         {data.map((row: Record<string, string | number>) => (
           <tr key={row.id}>
-            {columns.map(({ name, action }) => (
+            {columns.map(({ name, action, modifer }) => (
               <td
-                onClick={() => action && action(row?.id)}
+                onClick={() => action && action(row)}
                 key={`${name}-${row.id}`}
               >
                 <div
                   style={{
                     cursor: !!action ? "pointer" : "auto",
                     textDecoration: !!action ? "underline" : "auto",
-                    width: "80%",
                   }}
                 >
-                  {row[name]}
+                  {
+                    name === "actions" ? (
+                      { ...modifer }
+                    ) : (
+                      <>
+                        {getValueByString(row, name)}
+                      </>
+                    )
+                  }
                 </div>
               </td>
             ))}
